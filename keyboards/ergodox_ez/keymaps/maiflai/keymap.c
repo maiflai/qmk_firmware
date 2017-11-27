@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "keymap_uk.h"
 #include "debug.h"
 #include "action_layer.h"
 #include "version.h"
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F11,
        KC_TRNS,KC_NUBS,KC_SLSH,KC_LBRC,KC_RBRC,KC_GRV,KC_TRNS,
        KC_TRNS,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUHS,
-       KC_TRNS,KC_EXLM,KC_DQUO,KC_LBRC,KC_DLR ,KC_PERC,KC_TRNS,
+       KC_TRNS,KC_EXLM,UK_QUOT,UK_PND, KC_DLR ,KC_PERC,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                        KC_TRNS,KC_TRNS,
                                                KC_TRNS,
