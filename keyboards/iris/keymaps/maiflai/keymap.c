@@ -25,6 +25,8 @@ enum custom_keycodes {
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 
+#define KC_PSCN LALT(KC_PSCREEN)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = KC_KEYMAP(
@@ -35,19 +37,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      RASE, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,BSPC,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,LOWR,
+     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LCTL,SPC ,          ENT,RASE,LOWR
+                       LALT,LCTL,SPC ,          ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = KEYMAP(
   //,-------+-------+-------+-------+-------+-------.                            ,-------+-------+-------+-------+-------+-------.
-     LALT(KC_PSCREEN),KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,                    KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
+     LALT(KC_PSCN),KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,                       KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,_______, UK_AT ,KC_LBRC,KC_RBRC,KC_GRV ,                             KC_NUBS,KC_PGUP,KC_PGDN,KC_HOME,KC_END ,KC_INS ,
+     _______,LCTL(KC_Z), UK_AT ,KC_LBRC,KC_RBRC,KC_GRV ,                          KC_NUBS,KC_HOME, KC_UP ,KC_END ,KC_PGUP,KC_INS ,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUHS,                             KC_QUOT,KC_LEFT,KC_DOWN, KC_UP ,KC_RGHT,_______,
+     _______,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUHS,                             KC_QUOT,KC_LEFT,KC_DOWN,KC_RGHT,KC_PGDN,_______,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
      _______,KC_EXLM,UK_QUOT,UK_PND ,KC_DLR ,KC_PERC,KC_EQL ,             KC_MINS,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //`-------+-------+-------+-------+-------+-------+-------+----/  \----+-------+-------+-------+-------+-------+-------+-------'
@@ -59,11 +61,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BL_S,
+         ,    ,    ,UNDS,    ,    ,                   ,    ,PLUS,    ,    ,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,MPRV,MNXT,VOLU,PGUP,UNDS,               EQL ,HOME,    ,    ,    ,BSLS,
+         ,    ,    ,MINS,    ,    ,                   ,    ,EQL ,    ,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MSTP,MPLY,VOLD,PGDN,MINS,    ,         ,PLUS,END ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
