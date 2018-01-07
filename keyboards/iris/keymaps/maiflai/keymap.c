@@ -26,6 +26,7 @@ enum custom_keycodes {
 #define KC_BL_S BL_STEP
 
 #define KC_PSCN LALT(KC_PSCREEN)
+#define KC_SUPR RCTL(KC_RSFT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -37,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      RASE, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,BSPC,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,RSFT,
+     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,SUPR,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LALT,LCTL,SPC ,          ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
