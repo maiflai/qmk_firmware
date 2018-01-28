@@ -27,6 +27,7 @@ enum custom_keycodes {
 
 #define KC_PSCN LALT(KC_PSCREEN)
 #define KC_SUPR RCTL(KC_RSFT)
+#define KC_CTL  CTL_T(KC_EQL)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,SUPR,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LCTL,SPC ,          ENT,LOWR,RASE
+                       LALT,CTL,SPC,          ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -52,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
      _______,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUHS,                             KC_QUOT,KC_LEFT,KC_DOWN,KC_RGHT,KC_PGDN,_______,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,KC_EXLM,UK_QUOT,UK_PND ,KC_DLR ,KC_PERC,KC_EQL ,             KC_MINS,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
+     _______,KC_EXLM,UK_QUOT,UK_PND ,KC_DLR ,KC_PERC,KC_UNDS,             KC_MINS,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //`-------+-------+-------+-------+-------+-------+-------+----/  \----+-------+-------+-------+-------+-------+-------+-------'
-                                     _______,_______,KC_EQL ,             KC_MINS,_______,_______  
+                                     _______,_______,KC_UNDS,             KC_MINS,_______,_______  
   //                                `-------+-------+-------'             `------+-------+-------'
   ),
 
