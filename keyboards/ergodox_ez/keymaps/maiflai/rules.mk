@@ -86,5 +86,6 @@ ONEHAND_ENABLE   = yes # Allow swapping hands of keyboard
 SLEEP_LED_ENABLE = no
 API_SYSEX_ENABLE = no
 RGBLIGHT_ENABLE = yes
+AUTO_SHIFT_ENABLE = yes
 
 LAYOUTS = ergodox
