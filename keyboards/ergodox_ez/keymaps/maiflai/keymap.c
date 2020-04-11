@@ -5,8 +5,11 @@
 #include "version.h"
 
 #define BASE 0 // default layer
-#define SYMB 1 // symbols
-#define SPCL 2 // special keys
+#define FN 1 // FN layer
+#define META 2 // META layer
+
+#define ____ KC_TRNS
+#define KC_SUPR RCTL(KC_RSFT)
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -18,67 +21,66 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   KC_TRNS,
-        KC_TAB,         KC_Q,         KC_W,   KC_F,   KC_P,   KC_G,   KC_EQL,
-        KC_LCTL,        KC_A,         KC_R,   KC_S,   KC_T,   KC_D,
-        KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_LT,
-        MO(SPCL),       KC_LGUI,      KC_TRNS,KC_LALT,MO(SYMB),
+        KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   ____,
+        KC_TAB,         KC_Q,         KC_W,   KC_F,   KC_P,   KC_G,   ____,
+        MO(FN),         KC_A,         KC_R,   KC_S,   KC_T,   KC_D,
+        KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   ____,
+        ____,           ____,         KC_LGUI,KC_LALT,CTL_T(KC_EQL),
                                                                       KC_NUHS,  KC_INS,
                                                                                 KC_HOME,
-                                                            KC_SPC, KC_ENT,     KC_END,
+                                                            KC_SPC, KC_EQL,     KC_END,
         // right hand
-             KC_TRNS,     KC_6,     KC_7,    KC_8,   KC_9,   KC_0,             KC_ESC,
-             KC_MINS,     KC_J,     KC_L,    KC_U,   KC_Y,   KC_SCLN,          KC_NUBS,
-                          KC_H,     KC_N,    KC_E,   KC_I,   KC_O,             KC_QUOT,
-             KC_GT,       KC_K,     KC_M,    KC_COMM,KC_DOT, KC_SLSH,          KC_RSFT,
-	                            MO(SYMB),KC_LEFT,KC_DOWN,KC_UP  ,          KC_RGHT,
-             KC_INS,        KC_RGUI,
-             KC_PGUP,
-             KC_PGDN,KC_DEL, KC_BSPC
+        ____,           KC_6,     KC_7,    KC_8,   KC_9,   KC_0,             ____,
+        ____,           KC_J,     KC_L,    KC_U,   KC_Y,   KC_SCLN,          KC_DEL,
+                        KC_H,     KC_N,    KC_E,   KC_I,   KC_O,             KC_BSPC,
+        ____,           KC_K,     KC_M,    KC_COMM,KC_DOT, KC_SLSH,          KC_SUPR,
+	                             MO(META),MO(FN),KC_RALT,____  ,          ____,
+        KC_DEL ,KC_RGUI,
+        KC_PGUP,
+        KC_PGDN,   KC_PLUS, KC_ENT
     ),
-[SYMB] = LAYOUT_ergodox(
+[FN] = LAYOUT_ergodox(
        // left hand
-       KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F11,
-       KC_TRNS,KC_NUBS,KC_SLSH,KC_LBRC,KC_RBRC,KC_GRV,KC_TRNS,
-       KC_TRNS,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUHS,
-       KC_TRNS,KC_EXLM,UK_QUOT,UK_PND, KC_DLR ,KC_PERC,KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-                                       KC_TRNS,KC_TRNS,
-                                               KC_TRNS,
-                               KC_TRNS,KC_TRNS,KC_TRNS,
+       ____, KC_F1,  KC_F2,   KC_F3,   KC_F4,  KC_F5,  ____,
+       ____,  ____,  ____,    KC_UNDS, ____,   ____,   ____,
+       ____,  ____,  ____,    KC_MINS, ____,   ____,
+       ____,  ____,  ____,    ____,    ____,   ____,   ____,
+       ____,  ____,  ____,    ____,    ____,
+                                       ____,____,
+                                               ____,
+                               ____,____,____,
        // right hand
-       KC_TRNS, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F12,
-       KC_TRNS, KC_NUBS, KC_SLSH,KC_LBRC, KC_RBRC, KC_GRV,  KC_TRNS,
-                KC_LEFT, KC_DOWN,KC_UP,   KC_RIGHT,KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_CIRC, KC_AMPR,KC_ASTR, KC_LPRN, KC_RPRN, KC_TRNS,
-                         KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,
-       KC_TRNS, KC_TRNS,
-       KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS
+       ____, KC_F6,   KC_F7,  KC_F8,   KC_F9,   KC_F10,  KC_F12,
+       ____, ____,    ____,   KC_PLUS, ____,    ____,    ____,
+             ____,    ____,   KC_EQL,  ____,    ____,    ____,
+       ____, ____,    ____,   ____,    ____,    ____,    ____,
+                      ____,  ____,    ____,    ____,    ____,
+       ____, ____,
+       ____,
+       ____, ____, ____
 ),
-[SPCL] = LAYOUT_ergodox(
-       LALT(KC_PSCREEN), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_PSCREEN, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                           KC_TRNS, KC_TRNS,
-                                                    KC_TRNS,
-                                  KC_TRNS, KC_TRNS, KC_TRNS,
+[META] = LAYOUT_ergodox(
+       LALT(KC_PSCREEN), KC_EXLM,       UK_AT,   KC_HASH, KC_DLR,  KC_PERC,  ____,
+       ____,             LCTL(KC_Z),    KC_AT,   KC_LBRC, KC_RBRC, KC_GRV,   ____,
+       ____,             KC_LCBR,       KC_RCBR, KC_LPRN, KC_RPRN, KC_NUHS,         
+       ____,             KC_EXLM,       UK_AT, UK_PND,  KC_DLR,  KC_PERC, KC_UNDS,
+       ____,             ____,          ____,    ____,    ____,
+                                           ____, ____,
+                                                 ____,
+                                     ____, ____, ____,
     // right hand
-       KC_NLCK,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_CAPS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_SLCK,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,
-       KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS
+       KC_NLCK,  KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, ____,
+       KC_CAPS,  KC_NUBS, KC_HOME, KC_UP,   KC_END,  KC_PGUP, KC_INS,
+                 KC_QUOT, KC_LEFT, KC_DOWN, KC_RIGHT,KC_PGDN, ____,
+       KC_SLCK,  KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, ____,
+                          ____, ____, ____, ____, ____,
+       ____, ____,
+       ____,
+       ____, ____, ____
 ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -154,14 +156,14 @@ uint32_t layer_state_set_user(uint32_t state) {
           rgblight_init();
         #endif
         break;
-      case 1:
-        ergodox_right_led_1_on();
+      case FN:
+        // ergodox_right_led_1_on();
         #ifdef RGBLIGHT_COLOR_LAYER_1
           rgblight_setrgb(RGBLIGHT_COLOR_LAYER_1);
         #endif
         break;
-      case 2:
-        ergodox_right_led_2_on();
+      case META:
+        // ergodox_right_led_2_on();
         #ifdef RGBLIGHT_COLOR_LAYER_2
           rgblight_setrgb(RGBLIGHT_COLOR_LAYER_2);
         #endif
