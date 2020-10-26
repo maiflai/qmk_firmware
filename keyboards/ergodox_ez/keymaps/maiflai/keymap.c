@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [META] = LAYOUT_ergodox(
        LALT(KC_PSCREEN), KC_EXLM,       KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  ____,
        ____,             LCTL(KC_Z),    KC_EQL,   KC_LBRC, KC_RBRC, KC_GRV,   ____,
-       ____,             KC_LCBR,       KC_RCBR, KC_LPRN, KC_RPRN, KC_NUHS,         
+       ____,             KC_LCBR,       KC_RCBR, KC_LPRN, KC_RPRN, KC_NUHS,
        ____,             KC_EXLM,       KC_AT, UK_PND,  KC_DLR,  KC_PERC, KC_UNDS,
        RESET,             ____,          ____,    ____,    ____,
                                            ____, ____,
