@@ -28,6 +28,7 @@ enum custom_keycodes {
 #define KC_PSCN LALT(KC_PSCREEN)
 #define KC_SUPR RCTL(KC_RSFT)
 #define KC_CTL  CTL_T(KC_EQL)
+#define KC_LGON LCTL(LGUI(LALT(KC_DEL)))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -37,11 +38,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , F  , P  , G  ,                J  , L  , U  , Y  ,SCLN,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RASE, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,BSPC,
+     LCTL, A  , R  , S  , T  , D  ,                H  , N  , E  , I  , O  ,BSPC,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , K  , M  ,COMM,DOT ,SLSH,SUPR,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,CTL,SPC,          ENT,LOWR,RASE
+                       LALT,LGUI,SPC,          ENT,LOWR,RASE
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -49,13 +50,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-------+-------+-------+-------+-------+-------.                            ,-------+-------+-------+-------+-------+-------.
      LALT(KC_PSCN),KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,                       KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,LCTL(KC_Z), UK_AT ,KC_LBRC,KC_RBRC,KC_GRV ,                          KC_NUBS,KC_HOME, KC_UP ,KC_END ,KC_PGUP,KC_INS ,
+     _______,LCTL(KC_Z), KC_EQL ,KC_LBRC,KC_RBRC,KC_GRV ,                          KC_NUBS,KC_HOME, KC_UP ,KC_END ,KC_PGUP,KC_INS ,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
      _______,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUHS,                             KC_QUOT,KC_LEFT,KC_DOWN,KC_RGHT,KC_PGDN,_______,
-  //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,KC_EXLM,UK_QUOT,UK_PND ,KC_DLR ,KC_PERC,KC_UNDS,             KC_MINS,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
+  //|-------+-------+-------+------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
+     _______,KC_EXLM,UK_QUOT,UK_PND ,KC_DLR ,KC_PERC,KC_EQL,             KC_MINS,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //`-------+-------+-------+-------+-------+-------+-------+----/  \----+-------+-------+-------+-------+-------+-------+-------'
-                                     _______,_______,KC_UNDS,             KC_MINS,_______,_______  
+                                     _______,_______,KC_EQL,             KC_MINS,_______,_______  
   //                                `-------+-------+-------'             `------+-------+-------'
   ),
 
@@ -63,13 +64,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,UNDS,    ,    ,                   ,    ,PLUS,    ,    ,    ,
+         ,    ,    ,UNDS,    ,    ,                   ,    ,PLUS,    ,    ,LGON,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,MINS,    ,    ,                   ,    ,EQL ,    ,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             ,    ,    
+                           ,      ,   ,          ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 

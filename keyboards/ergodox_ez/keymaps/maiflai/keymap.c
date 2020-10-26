@@ -4,6 +4,8 @@
 #include "action_layer.h"
 #include "version.h"
 
+#define PERMISSIVE_HOLD
+
 #define BASE 0 // default layer
 #define FN 1 // FN layer
 #define META 2 // META layer
@@ -21,16 +23,16 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   EPRM,
+        KC_ESC,         KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   ____,
         KC_TAB,         KC_Q,         KC_W,   KC_F,   KC_P,   KC_G,   ____,
         MO(FN),         KC_A,         KC_R,   KC_S,   KC_T,   KC_D,
         KC_LSFT,        KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_MUTE,
-        ____,           ____,         KC_LGUI,KC_LALT,CTL_T(KC_EQL),
+        ____,           ____,         KC_LCTL,KC_LALT,KC_LGUI,
                                                                       KC_NUHS,  KC_INS,
                                                                                 KC_HOME,
                                                             KC_SPC, KC_EQL,     KC_END,
         // right hand
-        ____,           KC_6,     KC_7,    KC_8,   KC_9,   KC_0,             ____,
+        ____,           KC_6,     KC_7,    KC_8,   KC_9,   KC_0,             KC_RGUI,
         KC_VOLU,           KC_J,     KC_L,    KC_U,   KC_Y,   KC_SCLN,          KC_DEL,
                         KC_H,     KC_N,    KC_E,   KC_I,   KC_O,             KC_BSPC,
         KC_VOLD,           KC_K,     KC_M,    KC_COMM,KC_DOT, KC_SLSH,          KC_SUPR,
@@ -60,11 +62,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        ____, ____, ____
 ),
 [META] = LAYOUT_ergodox(
-       LALT(KC_PSCREEN), KC_EXLM,       UK_AT,   KC_HASH, KC_DLR,  KC_PERC,  ____,
-       ____,             LCTL(KC_Z),    KC_AT,   KC_LBRC, KC_RBRC, KC_GRV,   ____,
+       LALT(KC_PSCREEN), KC_EXLM,       KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  ____,
+       ____,             LCTL(KC_Z),    KC_EQL,   KC_LBRC, KC_RBRC, KC_GRV,   ____,
        ____,             KC_LCBR,       KC_RCBR, KC_LPRN, KC_RPRN, KC_NUHS,         
-       ____,             KC_EXLM,       UK_AT, UK_PND,  KC_DLR,  KC_PERC, KC_UNDS,
-       ____,             ____,          ____,    ____,    ____,
+       ____,             KC_EXLM,       KC_AT, UK_PND,  KC_DLR,  KC_PERC, KC_UNDS,
+       RESET,             ____,          ____,    ____,    ____,
                                            ____, ____,
                                                  ____,
                                      ____, ____, ____,
