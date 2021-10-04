@@ -12,6 +12,7 @@
 
 #define ____ KC_TRNS
 #define KC_SUPR RCTL(KC_RSFT)
+#define KC_ALT LALT(KC_LGUI)
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -36,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_VOLU,           KC_J,     KC_L,    KC_U,   KC_Y,   KC_SCLN,          KC_DEL,
                         KC_H,     KC_N,    KC_E,   KC_I,   KC_O,             KC_BSPC,
         KC_VOLD,           KC_K,     KC_M,    KC_COMM,KC_DOT, KC_SLSH,          KC_SUPR,
-	                             MO(META),MO(FN),KC_RALT,____  ,          ____,
+	                             MO(META),MO(FN),KC_ALT,____ ,          ____,
         KC_DEL ,KC_RGUI,
         KC_PGUP,
         KC_PGDN,   KC_PLUS, KC_ENT
