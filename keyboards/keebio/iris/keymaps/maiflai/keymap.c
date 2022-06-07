@@ -1,4 +1,5 @@
 #include "iris.h"
+#include "keymap_uk.h"
 
 extern keymap_config_t keymap_config;
 
@@ -40,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
   //,-------+-------+-------+-------+-------+-------.                            ,-------+-------+-------+-------+-------+-------.
-     KC_PSCN,KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,                       KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
+     KC_PSCN,KC_EXLM,UK_DQUO,UK_PND,KC_DLR ,KC_PERC,                       KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,LCTL(KC_Z), KC_EQL ,KC_LBRC,KC_RBRC,KC_GRV ,                          LSFT(KC_HASH),KC_HOME, KC_UP ,KC_END ,KC_PGUP,KC_INS ,
+     _______,LCTL(KC_Z), KC_EQL ,KC_LBRC,KC_RBRC,KC_NUHS ,                        KC_GRV ,KC_HOME, KC_UP ,KC_END ,KC_PGUP,KC_INS ,
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_BSLS,                             KC_QUOT,KC_LEFT,KC_DOWN,KC_RGHT,KC_PGDN,_______,
+     _______,KC_LCBR,KC_RCBR,KC_LPRN,KC_RPRN,KC_NUBS,                             KC_QUOT,KC_LEFT,KC_DOWN,KC_RGHT,KC_PGDN,_______,
   //|-------+-------+-------+------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
-     _______,KC_EXLM,KC_QUOT,KC_HASH ,KC_DLR ,KC_PERC,_______,             _______,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
+     _______,KC_EXLM,UK_DQUO,UK_PND,KC_DLR ,KC_PERC,_______,             _______,KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
   //`-------+-------+-------+-------+-------+-------+-------+----/  \----+-------+-------+-------+-------+-------+-------+-------'
                                      _______,_______,KC_EQL,             KC_MINS,_______,_______
   //                                `-------+-------+-------'             `------+-------+-------'
