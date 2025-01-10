@@ -4,7 +4,6 @@
 
 #include "lufa.h"
 #include "split_util.h"
-#include "ssd1306.h"
 #include "drivers/sensors/pimoroni_trackball.h"
 #include "pointing_device.h"
 
