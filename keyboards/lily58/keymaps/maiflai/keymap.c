@@ -20,14 +20,8 @@ enum layer_number {
 #define KC_LOWR MO(_LOWER)
 #define KC_RASE MO(_RAISE)
 
-#define KC_PSCN LALT(KC_PSCREEN)
 #define KC_SUPR RCTL(KC_RSFT)
 #define KC_LGON LCTL(LGUI(LALT(KC_DEL)))
-
-// for MacOS
-#define MC_VOLU KC__VOLUP
-#define MC_VOLD KC__VOLDOWN
-#define MC_MUTE KC__MUTE
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -39,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
      KC_LCTL, KC_A  , KC_R  , KC_S  , KC_T  , KC_D  ,                     KC_H   , KC_N  , KC_E  , KC_I  , KC_O  ,KC_BSPC,
   //|-C-----+-------+-------+-------+-------+-------+-------.    ,-------|-------+-------+-------+-------+-------+-------|
-     KC_LSFT, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,MC_VOLU     , MC_VOLD,KC_K  , KC_M  , KC_COMM,KC_DOT ,KC_SLSH,KC_SUPR,
+     KC_LSFT, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,KC_VOLU     , KC_VOLD,KC_K  , KC_M  , KC_COMM,KC_DOT ,KC_SLSH,KC_SUPR,
   //`-------+-------+-------+--+-+-------+-------+-------/       \-------+-------+-------+-------+-------+------+-------'
                               KC_LGUI,KC_LALT,KC_LCTL,KC_SPC      , KC_ENT,KC_LOWR,KC_RASE, KC_
   //                           `-------+-------+-------'           `-------+-------+-------'
@@ -47,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
   //,-------+-------+-------+-------+-------+-------.                    ,-------+-------+-------+-------+-------+-------.
-     KC_PSCN,KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,                     KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
+     KC_PSCR,KC_EXLM, KC_AT ,KC_HASH,KC_DLR ,KC_PERC,                     KC_CIRC,KC_AMPR,KC_ASTR,KC_LPRN,KC_RPRN,_______,
  //|--------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
      _______,_______,KC_EQL ,KC_LBRC,KC_RBRC,KC_GRV ,                     KC_NUBS,KC_HOME, KC_UP ,KC_END ,KC_PGUP,KC_INS ,
   //|-------+-------+-------+-------+-------+-------|                    |-------+-------+-------+-------+-------+-------|
@@ -67,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------+-------+-------+-------+-------+-------|                            |-------+-------+-------+-------+-------+-------|
      KC_    , KC_   ,KC_    ,KC_MINS, KC_   , KC_   ,                             KC_    ,KC_MUTE,KC_EQL , KC_   ,KC_VOLU, KC_   ,
   //|-------+-------+-------+-------+-------+-------+-------.            ,-------|-------+-------+-------+-------+-------+-------|
-       KC_  , KC_   , KC_   , KC_   , KC_   , KC_   ,KC_MPLY             ,MC_MUTE, KC_   ,KC_MRWD,KC_MPLY,KC_MFFD,KC_VOLD,KC_    ,
+       KC_  , KC_   , KC_   , KC_   , KC_   , KC_   ,KC_MPLY             ,KC_MUTE, KC_   ,KC_MRWD,KC_MPLY,KC_MFFD,KC_VOLD,KC_    ,
   //`-------+-------+-------+--+-+-------+-------+-------/               \-------+-------+-------+-------+-------+-------+-------'
                               KC_ , KC_   ,  KC_  ,   KC_  ,                KC_  ,KC_    ,KC_    , KC_
   //                   `-------+-------+-------'                           `-------+-------+-------'
