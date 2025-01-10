@@ -78,27 +78,42 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 const char *read_logo(void);
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
   if (!is_keyboard_left()) {
     const char * logo = read_logo();
     oled_write(logo, false);
     // oled_write_P(PSTR("HELLO"), false);
   }
+  return false;
 }
+
+static bool scrolling_mode = false;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case _RAISE:
-        trackball_set_rgbw(0xFF,  0x00, 0x00, 0x00);
+        pimoroni_trackball_set_rgbw(0xFF,  0x00, 0x00, 0x00);
         break;
     case _LOWER:
-        trackball_set_rgbw(0x00,  0x00, 0xFF, 0x00);
-	trackball_set_scrolling(true);
+        pimoroni_trackball_set_rgbw(0x00,  0x00, 0xFF, 0x00);
+	    scrolling_mode = true;
+//        pointing_device_set_cpi(1000);
         break;
     default: //  for any other layers, or the default layer
-        trackball_set_rgbw(0x00,  0x00, 0x00, 0x00);
-	trackball_set_scrolling(false);
+        pimoroni_trackball_set_rgbw(0x00,  0x00, 0x00, 0x00);
+	    scrolling_mode = false;
+//        pointing_device_set_cpi(4000);
         break;
     }
   return state;
+}
+
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    if (scrolling_mode) {
+        mouse_report.h = mouse_report.x;
+        mouse_report.v = mouse_report.y;
+        mouse_report.x = 0;
+        mouse_report.y = 0;
+    }
+    return mouse_report;
 }

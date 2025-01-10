@@ -18,6 +18,7 @@ SWAP_HANDS_ENABLE = no      # Enable one-hand typing
 OLED_ENABLE = yes      # OLED display
 PIMORONI_TRACKBALL_ENABLE = yes
 PIMORONI_TRACKBALL_CLICK = yes
+PIMORONI_TRACKBALL_SCALE = 15
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = pimoroni_trackball
 SRC += drivers/sensors/pimoroni_trackball.c ./lib/logo_reader.c
